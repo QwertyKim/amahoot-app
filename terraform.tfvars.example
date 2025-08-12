@@ -1,0 +1,42 @@
+# Example Terraform Variables File
+# Copy this file to terraform.tfvars and customize the values
+
+# AWS Configuration
+aws_region = "us-east-1"
+
+# Project Configuration
+project_name = "amahoot-websocket"
+environment  = "dev"
+
+# Network Configuration
+vpc_cidr           = "10.0.0.0/16"
+public_subnet_cidr = "10.0.1.0/24"
+
+# EC2 Configuration
+instance_type   = "t3.micro"
+key_pair_name   = null  # Set to your EC2 key pair name for SSH access, e.g., "my-key-pair"
+
+# Application Configuration
+app_port            = 5000
+dynamodb_table_name = "amahoot-game-data"
+cors_origin         = "*"  # Set to your frontend domain in production, e.g., "https://yourdomain.com"
+
+# Security Configuration
+ssh_allowed_cidrs = ["0.0.0.0/0"]  # Restrict this to your IP range in production, e.g., ["203.0.113.0/24"]
+
+# Optional Features
+create_elastic_ip = false  # Set to true for production to get a static IP
+
+# Source Code Configuration
+github_repo_url = "https://github.com/your-username/amahoot-websocket.git"  # Update with your actual repo
+app_directory   = "amahoot-websocket"
+
+# Example production configuration:
+# aws_region = "us-west-2"
+# project_name = "amahoot-websocket-prod"
+# environment = "prod"
+# instance_type = "t3.small"
+# key_pair_name = "my-production-key"
+# cors_origin = "https://amahoot.yourdomain.com"
+# ssh_allowed_cidrs = ["203.0.113.0/24"]  # Your office IP range
+# create_elastic_ip = true
